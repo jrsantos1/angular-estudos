@@ -14,6 +14,7 @@ import {MatSidenavModule} from '@angular/material/sidenav'
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './view/home/home.component';
 import { CardComponent } from './view/card/card.component';
+import { SobreComponent } from './view/sobre/sobre.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CardComponent } from './view/card/card.component';
     NavComponent,
     HomeComponent,
     CardComponent,
+    SobreComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,10 @@
-<div class="card" style="width: 18rem; border: 1px solid; height: 24rem;">
-
-<div *ngFor="let nomes of nome;">
-  <div style="width: 100%; background-color: aquamarine; border: solid 1px white; text-align: center;"> {{nomes}} </div>
+<div class="card" style="width: 20rem; border: 1px solid; height: 24rem;">
+  <h1 style="text-align: center;"> {{ titulo }} </h1>
+<div *ngFor="let nomes of nomei;">
+  <div class="card-item">
+    <div class="card-item-sinal"> Sinal </div>
+    <div class="card-item-nome"> {{nomes}}</div>
+   </div>
 </div>
-<button (click)="exibirMensagem()"> </button>
+
 </div>

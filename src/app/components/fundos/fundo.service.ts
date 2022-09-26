@@ -11,7 +11,7 @@ export class FundoService {
 
   constructor(private router: Router, private http: HttpClient) { }
 
-  baseUrl = 'http://127.0.0.1:5000/api-jhon'
+  baseUrl = 'http://127.0.0.1:5000/api-jhon' // base url api
 
   testeExibiMensagem(){
     console.log('Deu certo')

@@ -11,10 +11,22 @@ import { FooterComponent } from './components/template/footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav'
 
+// import http module
+import {HttpClientModule} from '@angular/common/http'
+
+// import servides
+
+import { FundoService } from './components/fundos/fundo.service';
+
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './view/home/home.component';
 import { CardComponent } from './view/card/card.component';
 import { SobreComponent } from './view/sobre/sobre.component';
+import { FundosComponent } from './view/fundos/fundos.component';
+import { CriarFundoComponent } from './components/fundos/criar-fundo/criar-fundo.component';
+import { LerFundoComponent } from './components/fundos/ler-fundo/ler-fundo.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,13 +37,19 @@ import { SobreComponent } from './view/sobre/sobre.component';
     HomeComponent,
     CardComponent,
     SobreComponent,
+    FundosComponent,
+    CriarFundoComponent,
+    LerFundoComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

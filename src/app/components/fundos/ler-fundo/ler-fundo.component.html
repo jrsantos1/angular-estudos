@@ -1,0 +1,27 @@
+<div class="container-md">
+<table class="table">
+  <thead class="table-dark">
+  <tr>
+  <th> ID </th>
+   <th> Nome </th>
+   <th> Segmento</th>
+   <th> Controle</th>
+   <th></th>
+   <th></th>
+  </tr>
+</thead>
+  <tbody>
+  <tr *ngFor="let fundo of fundos">
+    <td> {{ fundo.id }} </td>
+    <td> {{ fundo.nome }} </td>
+    <td> {{ fundo.segmento }} </td>
+    <td> {{ fundo.controle }} </td>
+    <td>
+         <button type="button" class="btn btn-dark m-1"> Editar </button>
+         <button type="button" class="btn btn-danger"> Excluir </button>
+    </td>
+
+  </tr>
+</tbody>
+</table>
+</div>

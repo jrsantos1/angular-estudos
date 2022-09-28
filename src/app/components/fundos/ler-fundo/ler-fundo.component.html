@@ -2,20 +2,23 @@
 <table class="table">
   <thead class="table-dark">
   <tr>
-  <th> ID </th>
-   <th> Nome </th>
-   <th> Segmento</th>
-   <th> Controle</th>
-   <th></th>
+  <th> Nome </th>
+   <th> Mesa </th>
+   <th> VaR</th>
+   <th> Alerta VaR</th>
+   <th> Stress</th>
+   <th> Alerta Stress</th>
    <th></th>
   </tr>
 </thead>
   <tbody>
   <tr *ngFor="let fundo of fundos">
-    <td> {{ fundo.id }} </td>
     <td> {{ fundo.nome }} </td>
-    <td> {{ fundo.segmento }} </td>
-    <td> {{ fundo.controle }} </td>
+    <td> {{ fundo.mesa }} </td>
+    <td [ngClass]="alertColor(fundo.var)"> {{ fundo.var }}</td>
+    <td> {{ fundo.alertaVar }} </td>
+    <td> {{ fundo.stress }} </td>
+    <td> {{ fundo.alertaStress }} </td>
     <td>
          <button type="button" class="btn btn-dark m-1"> Editar </button>
          <button type="button" class="btn btn-danger"> Excluir </button>

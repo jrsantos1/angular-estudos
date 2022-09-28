@@ -12,6 +12,7 @@ export class FundoService {
   constructor(private router: Router, private http: HttpClient) { }
 
   baseUrl = 'http://127.0.0.1:5000/api-jhon' // base url api
+  baseUrlMultimesas = 'http://127.0.0.1:5000/multimesas'
 
   testeExibiMensagem(){
     console.log('Deu certo')
@@ -23,6 +24,10 @@ export class FundoService {
 
   obterDadosFundos(): Observable<Fundos[]>{
     return this.http.get<Fundos[]>(this.baseUrl)
+  }
+
+  getAllMultimesas(): Observable<Fundos[]> {
+    return this.http.get<Fundos[]>(this.baseUrlMultimesas)
   }
 
   criarFundo(fundo: Fundos): Observable<Fundos>{

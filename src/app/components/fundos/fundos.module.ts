@@ -1,6 +1,9 @@
 export interface Fundos{
-  id? : number
+  //id? : number
   nome: string
-  segmento: string
-  controle: string
+  mesa: string
+  var: number
+  alertaVar: number
+  stress: number
+  alertaStress: number
 }

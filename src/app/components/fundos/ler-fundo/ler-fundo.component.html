@@ -1,5 +1,8 @@
 <div class="container-md">
-<table class="table">
+
+  <input type="text" id="input-busca" class="form-control mb-3">
+
+  <table class="table">
   <thead class="table-dark">
   <tr>
   <th> Nome </th>
@@ -11,14 +14,14 @@
    <th></th>
   </tr>
 </thead>
-  <tbody>
+  <tbody id="tabela-fundos">
   <tr *ngFor="let fundo of fundos">
     <td> {{ fundo.nome }} </td>
     <td> {{ fundo.mesa }} </td>
-    <td [ngClass]="alertColor(fundo.var)"> {{ fundo.var }}</td>
+    <td [ngClass]="alertColor(fundo.var)"> {{ fundo.var | currency }}</td>
     <td> {{ fundo.alertaVar }} </td>
-    <td> {{ fundo.stress }} </td>
-    <td> {{ fundo.alertaStress }} </td>
+    <td> {{ fundo.stress | currency : 'BRL'}} </td>
+    <td> {{ fundo.alertaStress  }} </td>
     <td>
          <button type="button" class="btn btn-dark m-1"> Editar </button>
          <button type="button" class="btn btn-danger"> Excluir </button>

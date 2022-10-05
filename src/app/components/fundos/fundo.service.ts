@@ -13,6 +13,7 @@ export class FundoService {
 
   baseUrl = 'http://127.0.0.1:5000/api-jhon' // base url api
   baseUrlMultimesas = 'http://127.0.0.1:5000/multimesas'
+  baseUrlCotacao = 'https://economia.awesomeapi.com.br/json/last/USD-BRL'
 
   testeExibiMensagem(){
     console.log('Deu certo')
@@ -33,6 +34,10 @@ export class FundoService {
   criarFundo(fundo: Fundos): Observable<Fundos>{
     //console.log(this.http.post<Fundos>(this.baseUrl, fundo))
     return this.http.post<Fundos>(this.baseUrl,fundo)
+  }
+
+  pegarCotacaoAtual(): Observable<string>{
+    return this.http.get<string>(this.baseUrlCotacao)
   }
 
 }

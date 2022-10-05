@@ -16,7 +16,7 @@
 </thead>
   <tbody id="tabela-fundos">
   <tr *ngFor="let fundo of fundos">
-    <td> {{ fundo.nome }} </td>
+    <td> <a href="detalhes/sacss"> {{ fundo.nome }} </a> </td>
     <td> {{ fundo.mesa }} </td>
     <td [ngClass]="alertColor(fundo.var)"> {{ fundo.var | currency }}</td>
     <td> {{ fundo.alertaVar }} </td>

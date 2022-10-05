@@ -25,6 +25,7 @@ import { SobreComponent } from './view/sobre/sobre.component';
 import { FundosComponent } from './view/fundos/fundos.component';
 import { CriarFundoComponent } from './components/fundos/criar-fundo/criar-fundo.component';
 import { LerFundoComponent } from './components/fundos/ler-fundo/ler-fundo.component';
+import { DetalhesComponent } from './view/detalhes/detalhes.component';
 
 
 
@@ -39,7 +40,8 @@ import { LerFundoComponent } from './components/fundos/ler-fundo/ler-fundo.compo
     SobreComponent,
     FundosComponent,
     CriarFundoComponent,
-    LerFundoComponent
+    LerFundoComponent,
+    DetalhesComponent
 
   ],
   imports: [

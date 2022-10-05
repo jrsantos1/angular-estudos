@@ -55,7 +55,7 @@ export class LerFundoComponent implements OnInit {
 
   }
 
-
+  cotacao: string | undefined;
 
   fundos: Fundos[] | undefined
 
@@ -66,12 +66,19 @@ export class LerFundoComponent implements OnInit {
     //   this.fundos = fundos
     //   console.log(this.fundos)
     // })
+    this.fundosService.pegarCotacaoAtual().subscribe(cotacao => {
+      this.cotacao = cotacao;
+      console.log(this.cotacao);
+    })
 
     this.filtro()
 
      this.fundosService.getAllMultimesas().subscribe(fundos => {
        this.fundos = fundos
      })
+
+
+
   }
 
 }

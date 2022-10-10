@@ -1,6 +1,8 @@
-import { Fundos } from './../fundos.module';
+import { Fundos, Var } from './../fundos.module';
 import { FundoService } from './../fundo.service';
 import { Component, OnInit } from '@angular/core';
+import * as Highcharts from 'highcharts'
+import { Options } from 'highcharts'
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 
 @Component({
@@ -10,8 +12,87 @@ import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 })
 export class LerFundoComponent implements OnInit {
 
+  title = 'myHighchart';
 
-  //fundos: Fundos[] | undefined
+  data = [{
+          name: 'Javatpoint.com',
+          data: [500, 700, 555, 444, 777, 877, 944, 567, 666, 789, 456, 654],
+          type: undefined
+       },{
+          name: 'Tutorialandexample.com',
+          data: [677, 455, 677, 877, 455, 778, 888, 567, 785, 488, 567, 654],
+          type: undefined
+       }];
+
+  highcharts = Highcharts;
+  chartOptions: Highcharts.Options = {
+    chart: {
+       type: "spline"
+    },
+    title: {
+       text: "Monthly Site Visitor"
+    },
+    xAxis:{
+       categories:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    },
+    yAxis: {
+       title:{
+          text:"Visitors"
+       }
+    },
+    series: [{
+        name: 'Javatpoint.com',
+        data: [500, 700, 555, 444, 777, 877, 944, 567, 666, 789, 456, 654],
+        type: 'line'
+      },
+      {
+      name: 'Tutorialandexample.com',
+      data: [677, 455, 677, 877, 455, 778, 888, 567, 785, 488, 567, 654],
+      type: 'line'
+      }]
+  };
+
+// // Chart
+
+ dataset: string[] = []
+ dataset_values: number[] = []
+
+// // grafico
+
+// title = 'Teste'
+
+// data = [{
+//   data: this.dataset_values
+// }]
+
+// highcharts = Highcharts;
+
+// chartOptions = {
+//   chart: {
+//     type: "bar"
+//   },
+//   title: {
+//       text: "Monthly Site Visitor"
+//   },
+//   xAxis:{
+//       categories: this.dataset
+//   },
+//   yAxis: {
+//       title:{
+//         text:"Visitors"
+//       }
+//   },
+//   series: this.data
+//   };
+
+
+  cotacao: string | undefined;
+
+  fundos: Fundos[] = [];
+
+  vol: Var[] =[];
+
+
 
   alertColor(value: number) {
     if (value > 3){
@@ -45,27 +126,26 @@ export class LerFundoComponent implements OnInit {
         }else{
           linhas[Number(posicao)].style.display = 'none';
         }
-
-
       }
-
       console.log(expresao)
 
     })
 
   }
 
-  cotacao: string | undefined;
-
-  fundos: Fundos[] | undefined
+  mostrarFundos(fund: Fundos[]){
+    for (const iterator of fund) {
+      console.log(iterator.nome)
+    }
+  }
 
   constructor(private fundosService: FundoService) { }
 
   ngOnInit(): void {
-    // this.fundosService.obterDadosFundos().subscribe(fundos => {
-    //   this.fundos = fundos
-    //   console.log(this.fundos)
-    // })
+
+    console.log('fucku');
+
+
     this.fundosService.pegarCotacaoAtual().subscribe(cotacao => {
       this.cotacao = cotacao;
       console.log(this.cotacao);
@@ -74,11 +154,15 @@ export class LerFundoComponent implements OnInit {
     this.filtro()
 
      this.fundosService.getAllMultimesas().subscribe(fundos => {
-       this.fundos = fundos
+       this.fundos = fundos;
+       fundos.forEach(fundo => {
+         this.dataset.push(fundo.nome)
+         this.dataset_values.push(fundo.var)
+       })
+
      })
 
-
-
+    //this.fundosService.getVar().subscribe(fundo => { this.vol = fundo });
   }
 
 }

@@ -7,3 +7,8 @@ export interface Fundos{
   stress: number
   alertaStress: number
 }
+
+export interface Var{
+  nome: string
+  var: number
+}

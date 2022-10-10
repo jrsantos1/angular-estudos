@@ -1,4 +1,4 @@
-import { Fundos } from './fundos.module';
+import { Fundos, Var } from './fundos.module';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Directive, Injectable } from '@angular/core';
@@ -14,6 +14,7 @@ export class FundoService {
   baseUrl = 'http://127.0.0.1:5000/api-jhon' // base url api
   baseUrlMultimesas = 'http://127.0.0.1:5000/multimesas'
   baseUrlCotacao = 'https://economia.awesomeapi.com.br/json/last/USD-BRL'
+  baseUrlGrafico = 'http://127.0.0.1:5000/var'
 
   testeExibiMensagem(){
     console.log('Deu certo')
@@ -39,5 +40,28 @@ export class FundoService {
   pegarCotacaoAtual(): Observable<string>{
     return this.http.get<string>(this.baseUrlCotacao)
   }
+
+  getVar(): Observable<Var[]>{
+    return this.http.get<Var[]>(this.baseUrlGrafico)
+  }
+
+  dadosGrafico(){
+    let dataset: Var[] = [];
+    let dados: string[] = [];
+    this.getVar().subscribe(retorno => {
+      dataset = retorno
+    })
+
+    for (let iterator of dataset) {
+      dados.push(iterator.nome)
+    }
+    console.log("o reusltado é ");
+
+    console.log(dataset);
+
+
+    return dados;
+  }
+
 
 }

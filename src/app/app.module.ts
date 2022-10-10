@@ -14,6 +14,10 @@ import {MatSidenavModule} from '@angular/material/sidenav'
 // import http module
 import {HttpClientModule} from '@angular/common/http'
 
+
+// import HighCharts
+
+
 // import servides
 
 import { FundoService } from './components/fundos/fundo.service';
@@ -26,6 +30,7 @@ import { FundosComponent } from './view/fundos/fundos.component';
 import { CriarFundoComponent } from './components/fundos/criar-fundo/criar-fundo.component';
 import { LerFundoComponent } from './components/fundos/ler-fundo/ler-fundo.component';
 import { DetalhesComponent } from './view/detalhes/detalhes.component';
+import {HighchartsChartComponent, HighchartsChartModule } from 'highcharts-angular'
 
 
 
@@ -50,7 +55,8 @@ import { DetalhesComponent } from './view/detalhes/detalhes.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
-    HttpClientModule
+    HttpClientModule,
+    HighchartsChartModule
 
   ],
   providers: [],
